@@ -7,6 +7,7 @@
 --%>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <title>Login Page</title>
@@ -34,32 +35,3 @@
 
 </body>
 </html>
-
-<%--<c:choose>--%>
-
-<%--    <c:when test="${param.username == 'admin' && param.password == 'password'}">--%>
-<%--        <c:redirect url="./profile.jsp">--%>
-<%--            <c:param name="username" value="${param.username}"> </c:param>--%>
-<%--            <c:param name="password" value="${param.password}"> </c:param>--%>
-<%--        </c:redirect>--%>
-<%--    </c:when>--%>
-
-<%--    <c:otherwise>--%>
-<%--        <h1>User Login</h1>--%>
-<%--        <h2>Username: ${param.username}</h2>--%>
-<%--        <h2>Password: ${param.Password}</h2>--%>
-
-<%--        <form method="post" action="./login.jsp">--%>
-<%--            <label for="username">Username:</label>--%>
-<%--            <input type="text" id="username" name="username" required><br><br>--%>
-
-<%--            <label for="password">Password:</label>--%>
-<%--            <input type="text" id="password" name="password" required><br><br>--%>
-
-<%--            <input type="submit" value="Submit">--%>
-<%--        </form>--%>
-
-<%--        <c:redirect url="./profile.jsp"> </c:redirect>--%>
-<%--    </c:otherwise>--%>
-
-<%--</c:choose>--%>
