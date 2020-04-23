@@ -21,17 +21,17 @@ public class ViewProfileServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        long adId = Long.parseLong(req.getParameter("id")); // checking for "id" in URL parameters
+//        long adId = Long.parseLong(req.getParameter("id")); // checking for "id" in URL parameters
 
         // Create the connection to the DaoFactory
         Ads adsDao = DaoFactory.getAdsDao();
         // This will give us access to all the Ads Interface methods
 
         // Get the ad by its ID from ListAdsDao
-        Ad ad = adsDao.findById(adId); // This will return a ad of type Ad (e.g. the type stated in Bean)
+//        Ad ad = adsDao.findById(adId); // This will return a ad of type Ad (e.g. the type stated in Bean)
 
         // set the attribute "ad" to the object we just created (see previous line)
-        req.setAttribute("ad", ad);
+//        req.setAttribute("ad", ad);
         req.getRequestDispatcher("/profile.jsp").forward(req, resp);
     }
 }

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: asanmiguel
@@ -11,24 +12,20 @@
 <html>
 <head>
     <jsp:include page="../partials/head.jsp">
-        <jsp:param name="title" value="Ad Show Page"/>
+        <jsp:param name="title" value="View Our Lovely Ads"/>
     </jsp:include>
-    <title></title>
 </head>
 <body>
-
-<!-- This is where all the content for the Ad Show page will go -->
-
 <jsp:include page="../partials/navbar.jsp"/>
 
+<!-- This is where all the content for the Ad Show page will go -->
+<!-- Loop through the ArrayList of ads we're sending in as 'allTheAds' and display each on the page -->
+
 <div class="container">
-
-<c:forEach items="${Ad}" var="ad">
-    <p>${ad.userId}</p><br/>
-    <p>${ad.title}</p><br/>
-    <p>${ad.description}</p><br/>
-</c:forEach>
-
+    <c:forEach var="ad" items="${allTheAds}">
+        <h1><c:out value="${ad.title}" /></h1>
+        <p><c:out value="${ad.description}" /></p>
+    </c:forEach>
 </div>
 
 </body>
