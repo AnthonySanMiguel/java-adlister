@@ -2,6 +2,10 @@ import java.util.List;
 
 public interface Ads {
 
+    List<Ad> all();
+
+    List<Ad> all(long id);
+
     // this method will return an object of type 'Ad', searched by 'id'
     Ad findById(long id);
 
@@ -11,6 +15,4 @@ public interface Ads {
     // could add extra method requirements to update/delete/etc.
     // e.g. deleteAd(long id){}
     // e.g. updateAd(Ad ad) {}
-
-    List<Ad> all();
 }

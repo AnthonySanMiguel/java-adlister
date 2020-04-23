@@ -23,16 +23,13 @@
 
 <div class="container">
 
-    <!-- userId of our Ad -->
-    <p>User ID: ${ad.userId}</p>
-
-    <!-- Title of our Ad -->
-    <h3>Title: ${ad.title}</h3>
-
-    <!-- Description of our Ad -->
-    <h3>Description:</h3>
-    <p>${ad.description}</p>
+<c:forEach items="${Ad}" var="ad">
+    <p>${ad.userId}</p><br/>
+    <p>${ad.title}</p><br/>
+    <p>${ad.description}</p><br/>
+</c:forEach>
 
 </div>
+
 </body>
 </html>

@@ -53,13 +53,20 @@ public class ListAdsDao implements Ads {
 
     // Implement our interface requirements (from Ads.java)
 
+    @Override
+    public List<Ad> all(long id) {
+        return null;
+    }
+
+    @Override
     public Ad findById(long id) {
         // We want to return the 'Ad' object for the ID passed in
         // This will return the full row in the database...
-        // i.e. id | title | priceInCents | description (the full row)
+        // i.e. id | userId | title | description (the full row)
         return ads.get((int)id - 1); // Make it zero-indexed
     }
 
+    @Override
     public long createAd(Ad ad) {
         // Create a ad and insert into our ArrayList (and eventually, the database)
 
