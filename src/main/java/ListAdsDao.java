@@ -1,8 +1,14 @@
 import java.util.ArrayList;
 import java.util.List;
 
+// This is our DAO (data access object, or 'data access class')
+
 public class ListAdsDao implements Ads {
     private List<Ad> ads;
+
+    // list all the ads, find a ad by ID, create a ad
+
+    // This will list all the ads in the database table
 
     public List<Ad> all() {
         if (ads == null) {
@@ -11,8 +17,13 @@ public class ListAdsDao implements Ads {
         return ads;
     }
 
+    // Constructor for this DAO class
+
     private List<Ad> generateAds() {
         List<Ad> ads = new ArrayList<>();
+
+        // add some dummy data
+
         ads.add(new Ad(
             1,
             1,
@@ -38,5 +49,25 @@ public class ListAdsDao implements Ads {
             "Must have strong Java skills"
         ));
         return ads;
+    }
+
+    // Implement our interface requirements (from Ads.java)
+
+    public Ad findById(long id) {
+        // We want to return the 'Ad' object for the ID passed in
+        // This will return the full row in the database...
+        // i.e. id | title | priceInCents | description (the full row)
+        return ads.get((int)id - 1); // Make it zero-indexed
+    }
+
+    public long createAd(Ad ad) {
+        // Create a ad and insert into our ArrayList (and eventually, the database)
+
+        // assign an ID
+        ad.setId(ads.size() + 1); // same as auto_increment; thus the ID will always be unique
+
+        // add a new ad to the ArrayList
+        ads.add(ad); // When we call the createAd method, we are sending in a 'Ad' type object. This will add that object to the ArrayList.
+        return ad.getId();
     }
 }

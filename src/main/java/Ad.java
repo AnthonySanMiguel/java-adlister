@@ -1,8 +1,19 @@
-public class Ad {
+import java.io.Serializable;
+
+// this is our Bean + Bean components (*THESE WILL BE THE COLUMNS IN THE DATABASE TABLE)
+
+public class Ad implements Serializable {
     private long id;
     private long userId;
     private String title;
     private String description;
+
+    // 1. Create our zero-argument constructor
+
+    public Ad() { // We're doing this so the JVM can reserve space for this in memory
+    }
+
+    // Ad constructor
 
     public Ad(long id, long userId, String title, String description) {
         this.id = id;
@@ -10,6 +21,8 @@ public class Ad {
         this.title = title;
         this.description = description;
     }
+
+    // 2. Getters and Setters
 
     public long getId() {
         return id;
