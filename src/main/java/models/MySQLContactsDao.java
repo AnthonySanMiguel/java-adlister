@@ -63,6 +63,9 @@ public class MySQLContactsDao implements Contacts {
             // we need to insert that info into a new row in the database, then return the generated ID (key) for that database table
         // Instantiate a new Contact object
 
+        // INSERT INTO contacts (first_name, last_name, phone_number) VALUES ('casey', 'friday', '2105557777
+
+        // This is the id we'll return after inserting the user into the DB table
         long newlyCreatedUserId = 0;
 
                 String addContactQuery = String.format("INSERT INTO contacts (first_name, last_name, phone_number) VALUES ('%s', '%s', '%s')",
