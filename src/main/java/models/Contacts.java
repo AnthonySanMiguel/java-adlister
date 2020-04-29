@@ -1,5 +1,6 @@
 package models;
 
+import java.sql.SQLException;
 import java.util.List;
 
 // Interface for our models.Contact (singular) bean [to be implemented by our Data Access Object "DAO"]
@@ -7,7 +8,7 @@ import java.util.List;
 public interface Contacts {
 
     // List all the contacts (List<models.Contact>)
-    List<Contact> getContacts();
+    List<Contact> getContacts() throws SQLException;
 
     // method for saving contacts
     // will essentially get length of List<models.Contact> and +1
