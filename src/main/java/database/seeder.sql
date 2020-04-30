@@ -1,12 +1,19 @@
-drop database if exists contacts_db;
+drop database if exists adlister_db;
 
-create database contacts_db;
+create database adlister_db;
 
-use contacts_db;
+use adlister_db;
 
-create table contacts (
+create table users (
     id int unsigned not null auto_increment primary key,
-    first_name varchar(50),
-    last_name varchar(50),
-    phone_number varchar(30)
+    username varchar(50),
+    email varchar(50),
+    password varchar(30)
+);
+
+create table ads (
+    id int unsigned not null auto_increment primary key,
+    user_id int unsigned not null,
+    title varchar(50),
+    description varchar(100)
 );

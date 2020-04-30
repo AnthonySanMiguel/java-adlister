@@ -6,17 +6,10 @@ public class DaoFactory {
     private static Ads adsDao;
     private static Contacts contactsDao;
 
-    public static Ads getAdsDao() {
+    public static Ads getAdsDao() throws SQLException {
         if (adsDao == null) {
-            adsDao = new ListAdsDao();
+            adsDao = new MySQLAdsDao();
         }
         return adsDao;
-    }
-
-    public static Contacts getContactsDao() throws SQLException {
-        if(contactsDao == null) {
-            contactsDao = new MySQLContactsDao();
-        }
-        return contactsDao;
     }
 }
