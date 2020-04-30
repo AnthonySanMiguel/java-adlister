@@ -1,14 +1,16 @@
 package models;
 
+import controllers.Config;
+
 import java.sql.SQLException;
 
 public class DaoFactory {
     private static Ads adsDao;
-    private static Contacts contactsDao;
 
     public static Ads getAdsDao() throws SQLException {
         if (adsDao == null) {
-            adsDao = new MySQLAdsDao();
+            Config config = new Config();
+            adsDao = new MySQLAdsDao(config);
         }
         return adsDao;
     }
