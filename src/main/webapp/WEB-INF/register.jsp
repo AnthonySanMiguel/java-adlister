@@ -11,6 +11,17 @@
     <title>Title</title>
 </head>
 <body>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<form action="/login.jsp" method="post">
+    <label for="username-input">Username</label>
+    <input type="text" id="username-input" name="usernameInput">
+    <label for="password-input">Password</label>
+    <input type="password" id="password-input" name="passwordInput">
+    <label for="email-input">Password</label>
+    <input type="email" id="email-input" name="emailInput">
+    <button>Submit</button>
+</form>
 
 </body>
 </html>
