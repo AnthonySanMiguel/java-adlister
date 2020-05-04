@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 
 @WebServlet(name = "controllers.LoginServlet", urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
@@ -25,7 +26,12 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
 
         // TODO: find a record in your database that matches the submitted password
-        User user = DaoFactory.getUsersDao().findByUsername(username);
+        User user = null;
+        try {
+            user = DaoFactory.getUsersDao().findByUsername(username);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
 
         // TODO: make sure we find a user with that username
         if (user != null) {

@@ -49,9 +49,21 @@ public class RegisterServlet extends HttpServlet {
         return true;
     }
 
-    private boolean isEmailValid(String email) {
-        String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
-        return email.matches(regex);
+    private boolean isUsernameValid(String username) {
+        if (username == null) {
+            return false;
+        }
+        if (username.length() < 10) {
+            return false;
+        }
+        if (username.length() > 25) {
+            return false;
+        }
+        Pattern pattern = Pattern.compile("[A-Za-z_][A-Za-z0-9_]+");
+        if (!pattern.matcher(username).matches()) {
+            return false;
+        }
+        return false;
     }
 
     private boolean isPasswordValid(String password) {
@@ -73,7 +85,7 @@ public class RegisterServlet extends HttpServlet {
             if (password.charAt(i) >= 'A' && password.charAt(i) <= 90) {
                 hasUpper = true;
             }
-            if (password.charAt(i) >= 97 && password.charAt(i) <= 122) {
+            if (password.charAt(i) >= 'a' && password.charAt(i) <= 'z') {
                 hasLower = true;
             }
             if (hasUpper && hasLower && hasNumber && hasSpecial) {
@@ -83,20 +95,8 @@ public class RegisterServlet extends HttpServlet {
         return false;
     }
 
-    private boolean isUsernameValid(String username) {
-        if (username == null) {
-            return false;
-        }
-        if (username.length() < 10) {
-            return false;
-        }
-        if (username.length() > 25) {
-            return false;
-        }
-        Pattern pattern = Pattern.compile("[A-Za-z_][A-Za-z0-9_]+");
-        if (!pattern.matcher(username).matches()) {
-            return false;
-        }
-        return false;
+    private boolean isEmailValid(String email) {
+        String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+        return email.matches(regex);
     }
 }
